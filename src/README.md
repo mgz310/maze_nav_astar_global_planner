@@ -43,7 +43,7 @@
 1. 将本功能包放入 ROS 工作空间的 `src` 目录下，例如：
    ```bash
    cd ~/catkin_ws/src
-   git clone <your_repo_url> astar_global_planner
+   git clone git@github.com:mgz310/maze_nav_astar_global_planner.git
 
 ## 依赖安装
 
