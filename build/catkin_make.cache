@@ -1,0 +1,2 @@
+maze_mapping:maze_nav:my_robot
+-DCATKIN_DEVEL_PREFIX=/home/cai/first_nav/devel -DCMAKE_INSTALL_PREFIX=/home/cai/first_nav/install -G Unix Makefiles

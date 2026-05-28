@@ -1,0 +1,2 @@
+maze_mapping:maze_nav:my_robot
+-DCMAKE_BUILD_TYPE=RelWithDebInfo -G Unix Makefiles -DCATKIN_DEVEL_PREFIX=/home/cai/first_nav/devel_isolated -DCMAKE_INSTALL_PREFIX=/home/cai/first_nav/install_isolated

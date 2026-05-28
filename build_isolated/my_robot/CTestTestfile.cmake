@@ -1,0 +1,7 @@
+# CMake generated Testfile for 
+# Source directory: /home/cai/first_nav/src/my_robot
+# Build directory: /home/cai/first_nav/build_isolated/my_robot
+# 
+# This file includes the relevant testing commands required for 
+# testing this directory and lists subdirectories to be tested as well.
+subdirs("gtest")

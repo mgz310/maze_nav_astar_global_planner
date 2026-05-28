@@ -1,0 +1,8 @@
+prefix=/home/cai/first_nav/devel_isolated/maze_nav
+
+Name: maze_nav
+Description: Description of maze_nav
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

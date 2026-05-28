@@ -1,0 +1,38 @@
+
+
+  odom_topic: odom
+  map_frame: map
+
+  # 机器人速度限制
+  max_vel_x: 2.0
+  max_vel_y: 1.5          # 麦克纳姆轮支持 Y 轴移动
+  max_vel_theta: 1.0
+  acc_lim_x: 1.5
+  acc_lim_y: 1.5
+  acc_lim_theta: 1.0
+
+  min_turning_radius: 0.0 # 全向轮忽略转弯半径
+  footprint_model:
+    type: "circular"
+    radius: 0.3           # 根据实际小车半径修改
+
+  # 优化器参数
+  teb_autosize: true
+  dt_ref: 0.3
+  dt_hysteresis: 0.1
+  global_plan_overwrite_orientation: true
+  allow_init_with_backwards_motion: false
+  max_global_plan_lookahead_dist: 3.0
+  feasibility_check_no_poses: 5
+
+  # 障碍物避障
+  min_obstacle_dist: 0.5
+  inflation_dist: 0.1
+  include_costmap_obstacles: true
+  costmap_obstacles_behind_robot_dist: 1.0
+  obstacle_poses_affected: 30
+  weight_obstacle: 60
+  weight_viapoint: 1.0
+
+  # 规划器
+  # 更多参数可参考 teb_local_planner 官方文档

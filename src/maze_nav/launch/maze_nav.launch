@@ -1,0 +1,56 @@
+<launch>
+  <!-- 1. 启动 Gazebo 迷宫世界 -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find maze_mapping)/worlds/maze.world"/>
+  </include>
+
+  <!-- 2. 启动机器人 -->
+  <include file="$(find my_robot)/launch/robot.launch">
+  </include>
+  <!-- 发布机器人状态 -->
+<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+  <!-- 3. 加载静态地图（建图时保存的地图） -->
+  <node pkg="map_server" type="map_server" name="map_server"
+        args="$(find maze_mapping)/maps/maze_map.yaml"/>
+
+  <!-- 4. 启动 move_base -->
+  <node pkg="move_base" type="move_base" name="move_base" output="screen">
+    <rosparam file="$(find maze_nav)/params/move_base_params.yaml" command="load"/>
+    <rosparam file="$(find maze_nav)/params/global_costmap_params.yaml" command="load" ns="global_costmap"/>
+    <rosparam file="$(find maze_nav)/params/local_costmap_params.yaml" command="load" ns="local_costmap"/>
+    <rosparam file="$(find maze_nav)/params/teb_local_planner_params.yaml" command="load"/>
+  </node>
+
+  <!-- 5. RViz -->
+  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find maze_nav)/rviz/nav.rviz"/>
+
+<node pkg="robot_localization" type="ekf_localization_node" name="ekf_odom" clear_params="true">
+  <param name="frequency" value="30"/>
+  <param name="sensor_timeout" value="0.1"/>
+  <param name="two_d_mode" value="true"/>
+
+  <!-- 里程计输入 -->
+  <param name="odom0" value="odom"/>
+  <rosparam param="odom0_config">
+    [false, false, false,
+     false, false, false,
+     true,  true,  false,
+     false, false, true,
+     false, false, false]
+  </rosparam>
+
+  <param name="odom_frame" value="odom"/>
+  <param name="base_link_frame" value="base_footprint"/>
+  <param name="world_frame" value="odom"/>
+
+  <param name="publish_tf" value="false"/>
+  <param name="publish_acceleration" value="false"/>
+
+  <remap from="odometry/filtered" to="odom_combined"/>
+</node>
+
+<node pkg="tf2_ros" type="static_transform_publisher" name="map_to_odom"
+      args="0 0 0 0 0 0 map odom" />
+</launch>

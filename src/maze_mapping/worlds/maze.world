@@ -1,0 +1,152 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="maze_world">
+    <!-- 包含阳光、地面等基础元素 -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <!-- 迷宫墙壁 - 外部围墙 -->
+    <model name="wall_out_1">
+      <static>true</static>
+      <pose>0 5 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box><size>10 0.1 1</size></box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box><size>10 0.1 1</size></box>
+          </geometry>
+          <material><ambient>0.5 0.5 0.5</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name="wall_out_2">
+      <static>true</static>
+      <pose>5 0 0.5 0 0 1.57</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box><size>10 0.1 1</size></box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box><size>10 0.1 1</size></box>
+          </geometry>
+          <material><ambient>0.5 0.5 0.5</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name="wall_out_3">
+      <static>true</static>
+      <pose>0 -5 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box><size>10 0.1 1</size></box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box><size>10 0.1 1</size></box>
+          </geometry>
+          <material><ambient>0.5 0.5 0.5</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name="wall_out_4">
+      <static>true</static>
+      <pose>-5 0 0.5 0 0 1.57</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box><size>10 0.1 1</size></box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box><size>10 0.1 1</size></box>
+          </geometry>
+          <material><ambient>0.5 0.5 0.5</ambient></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- 内部挡板，形成一个简单迷宫 -->
+    <model name="wall_inner_1">
+      <static>true</static>
+      <pose>-1.5 2.5 0.5 0 0 1.57</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box><size>3 0.1 1</size></box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box><size>3 0.1 1</size></box>
+          </geometry>
+          <material><ambient>0.7 0.7 0.7</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name="wall_inner_2">
+      <static>true</static>
+      <pose>1.5 -2.5 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box><size>4 0.1 1</size></box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box><size>4 0.1 1</size></box>
+          </geometry>
+          <material><ambient>0.7 0.7 0.7</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name="wall_inner_3">
+      <static>true</static>
+      <pose>-3 -1 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box><size>2 0.1 1</size></box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box><size>2 0.1 1</size></box>
+          </geometry>
+          <material><ambient>0.7 0.7 0.7</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <!-- 可根据需要再添加更多墙壁，保证有通路到目标点 -->
+
+    <!-- 放置一个简单的目标点标识（可选） -->
+    <model name="goal_marker">
+      <static>true</static>
+      <pose>4 4 0 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder><radius>0.1</radius><length>0.01</length></cylinder>
+          </geometry>
+          <material>
+            <ambient>0 0 1 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+  </world>
+</sdf>

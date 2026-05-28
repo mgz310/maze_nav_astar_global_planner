@@ -1,0 +1,8 @@
+prefix=/home/cai/first_nav/devel
+
+Name: maze_mapping
+Description: Description of maze_mapping
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
