@@ -44,6 +44,11 @@
    ```bash
    cd ~/catkin_ws/src
    git clone git@github.com:mgz310/maze_nav_astar_global_planner.git
+   cd ~/catkin_ws
+   catkin_make
+   souce ./devel/setup.bash
+   ##启动导航launch文件
+   roslaunch maze_nav maze_nav.launch
 
 ## 依赖安装
 
