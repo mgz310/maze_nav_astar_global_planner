@@ -1,4 +1,3 @@
-下面是一个适合你项目的 README.md 模板，可直接复制使用。
 
 ```markdown
 # 迷宫机器人导航仿真项目（Maze Navigation）
