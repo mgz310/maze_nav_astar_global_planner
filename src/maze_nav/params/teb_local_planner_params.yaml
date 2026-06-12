@@ -1,0 +1,52 @@
+odom_topic: odom
+map_frame: map
+
+# 机器人速度限制
+max_vel_x: 8.0
+max_vel_y: 2.5          #麦克纳姆轮支持 Y 轴移动
+max_vel_theta: 2.0
+acc_lim_x: 5
+acc_lim_y: 5
+acc_lim_theta: 2.0
+min_turning_radius: 0.1 # 最小转弯半径
+footprint_model:        # 机器人足迹模型参数
+  type: "circular"      # 足迹模型类型
+  radius: 0.4           # 实际小车半径
+
+# 优化器参数
+teb_autosize: true   
+dt_ref: 0.3    
+dt_hysteresis: 0.1
+global_plan_overwrite_orientation: true
+allow_init_with_backwards_motion: false
+max_global_plan_lookahead_dist: 3.0
+feasibility_check_no_poses: 5
+min_samples: 5
+
+# 目标容忍度
+xy_goal_tolerance: 0.1
+yaw_goal_tolerance: 0.1
+
+      
+# 权重
+weight_obstacle: 130.0
+weight_viapoint: 1.0 
+weight_optimaltime: 7.0
+
+# 障碍物避障
+min_obstacle_dist: 1
+inflation_dist: 0.1
+include_costmap_obstacles: true
+costmap_obstacles_behind_robot_dist: 1.0
+obstacle_poses_affected: 30
+weight_obstacle: 60
+weight_viapoint: 1.0
+
+# 动态障碍物
+include_dynamic_obstacles: true
+  # costmap 转换器（将 costmap 中的动态障碍物标记为动态）
+costmap_converter_plugin: "costmap_converter::CostmapToDynamicObstacles"
+costmap_converter_spin_thread: true
+costmap_converter_rate: 5
+
+ 
