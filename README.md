@@ -40,11 +40,10 @@
 
 ## 编译
 
-1. 将本功能包放入 ROS 工作空间的 `src` 目录下，例如：
+1. 将本功能包放入 ROS 工作空间目录下，例如：
    ```bash
-   cd ~/catkin_ws/src
-   git clone git@github.com:mgz310/maze_nav_astar_global_planner.git
    cd ~/catkin_ws
+   git clone git@github.com:mgz310/maze_nav_astar_global_planner.git
    catkin_make
    souce ./devel/setup.bash
    ##启动导航launch文件
@@ -96,7 +95,7 @@ source devel/setup.bash
 
 > 如果你的工作空间路径不同，请相应修改。
 
-## 使用方法
+## 使用方法及功能演示
 
 1. **启动完整导航仿真**
 ```bash
