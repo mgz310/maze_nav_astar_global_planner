@@ -1,0 +1,11 @@
+<launch>
+  <!-- 1. 启动 Gazebo -->
+  <!-- <include file="$(find gazebo_ros)/launch/empty_world.launch"/> -->
+
+  <!-- 2. 加载机器人模型 -->
+  <param name="robot_description" command="$(find xacro)/xacro '$(find my_robot)/urdf/robot.xacro'"/>
+
+  <!-- 3. 生成机器人 -->
+  <node name="spawn_robot" pkg="gazebo_ros" type="spawn_model"
+        args="-urdf -model my_robot -param robot_description -x 0 -y 0 -z 0.1"/>
+</launch>

@@ -1,0 +1,12 @@
+# 使用自定义 A* 全局规划器
+base_global_planner: "astar_planner::AStarPlanner"
+base_local_planner: "teb_local_planner/TebLocalPlannerROS"
+
+controller_frequency: 10.0
+planner_patience: 5.0
+controller_patience: 15.0
+conservative_reset_dist: 3.0
+
+# 恢复行为
+recovery_behavior_enabled: true
+clearing_rotation_allowed: true
